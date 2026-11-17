@@ -154,6 +154,12 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --profile-ink: oklch(0.94 0.012 250);
+  --profile-secondary: oklch(0.74 0.025 252);
+  --profile-soft: oklch(0.2 0.035 260);
+  --profile-soft-blue: oklch(0.25 0.04 255);
+  --profile-gold: oklch(0.82 0.16 83);
+  --profile-footer-back: oklch(0.24 0.04 255);
 }
 
 body {
