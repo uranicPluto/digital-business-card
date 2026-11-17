@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## App structure
+
+- Keep the customer-facing business profile as the sole `/` experience, with its reusable UI sections co-located in the route and all business data mocked locally; this prototype does not need persistence or additional navigation.
