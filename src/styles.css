@@ -339,6 +339,11 @@ body {
   color: oklch(0.63 0.025 255);
 }
 
+.rating-star svg {
+  width: 31px;
+  height: 31px;
+}
+
 .rating-star:hover,
 .rating-star.is-active {
   color: var(--profile-gold);
@@ -437,6 +442,11 @@ body {
   transition: transform 160ms ease, background-color 160ms ease;
 }
 
+.social-link svg {
+  width: 23px;
+  height: 23px;
+}
+
 .social-link:hover {
   transform: translateY(-2px);
   background: var(--profile-soft);
@@ -467,6 +477,11 @@ body {
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
+}
+
+.contact-action svg {
+  width: 20px;
+  height: 20px;
 }
 
 .contact-action:hover {
