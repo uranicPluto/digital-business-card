@@ -31,4 +31,4 @@ use the editor.
 
 ## App structure
 
-- Keep the customer-facing business profile as the sole `/` experience, with its reusable UI sections co-located in the route and all business data mocked locally; this prototype does not need persistence or additional navigation.
+- Keep the customer-facing business profile at `/` with its reusable UI sections and mock data local to that route; keep marketing pages under `/marketing` so the shareable customer profile remains unchanged.
