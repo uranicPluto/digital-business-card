@@ -10,33 +10,69 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MarketingIndexRouteImport } from './routes/marketing.index'
+import { Route as MarketingAboutRouteImport } from './routes/marketing.about'
+import { Route as MarketingHowItWorksRouteImport } from './routes/marketing.how-it-works'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarketingIndexRoute = MarketingIndexRouteImport.update({
+  id: '/marketing/',
+  path: '/marketing/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingAboutRoute = MarketingAboutRouteImport.update({
+  id: '/marketing/about',
+  path: '/marketing/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingHowItWorksRoute = MarketingHowItWorksRouteImport.update({
+  id: '/marketing/how-it-works',
+  path: '/marketing/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/marketing/about': typeof MarketingAboutRoute
+  '/marketing/how-it-works': typeof MarketingHowItWorksRoute
+  '/marketing/': typeof MarketingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/marketing/about': typeof MarketingAboutRoute
+  '/marketing/how-it-works': typeof MarketingHowItWorksRoute
+  '/marketing': typeof MarketingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/marketing/about': typeof MarketingAboutRoute
+  '/marketing/how-it-works': typeof MarketingHowItWorksRoute
+  '/marketing/': typeof MarketingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/marketing/about' | '/marketing/how-it-works' | '/marketing/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/marketing/about' | '/marketing/how-it-works' | '/marketing'
+  id:
+    | '__root__'
+    | '/'
+    | '/marketing/about'
+    | '/marketing/how-it-works'
+    | '/marketing/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MarketingAboutRoute: typeof MarketingAboutRoute
+  MarketingHowItWorksRoute: typeof MarketingHowItWorksRoute
+  MarketingIndexRoute: typeof MarketingIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +84,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/marketing/': {
+      id: '/marketing/'
+      path: '/marketing'
+      fullPath: '/marketing/'
+      preLoaderRoute: typeof MarketingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/about': {
+      id: '/marketing/about'
+      path: '/marketing/about'
+      fullPath: '/marketing/about'
+      preLoaderRoute: typeof MarketingAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/how-it-works': {
+      id: '/marketing/how-it-works'
+      path: '/marketing/how-it-works'
+      fullPath: '/marketing/how-it-works'
+      preLoaderRoute: typeof MarketingHowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MarketingAboutRoute: MarketingAboutRoute,
+  MarketingHowItWorksRoute: MarketingHowItWorksRoute,
+  MarketingIndexRoute: MarketingIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
